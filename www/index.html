@@ -76,24 +76,40 @@
 
     function deleteData() {
       //$("#display").html("delete does not work");
-      /*UTData.fetch()
-      .then(function(results)){
+      UTdata.fetch()
+      .then(function(results){
           return results.delete();
         })
-      .then(function(results) {
-          $("#display").removeClass();
-          $("#display").addClass("bg-success");
-          $("#display").html("delete success");
+        .then(function(results){
+            $("#display").addClass("bg-success");
+            $("#display").html("delete success");
         })
-        .catch(function(results) {
-          $("#display").removeClass();
-          $("#display").addClass("bg-warning");
-          $("#display").html("delete fail");
-        })*/
+        .catch(function(error){
+            $("#display").removeClass();
+            $("#display").addClass("bg-warning");
+            $("#display").html("delete fail:" + JSON.
+            stringify(error));
+        })
     }
 
     function updateData() {
-      $("#display").html("update does not work");
+      //$("#display").html("update does not work");
+      /*UTData.fetch();
+      .then(function(results)){
+          let value=parseInt($("#update").val());
+          results.set(key, value);
+          return results.update();
+        })
+      .then(function(results){
+        $("#display").removeClass();
+        $("#display").addClass("bg-success");
+        $("#display").html("update success");
+       })
+       .catch(function(error){
+        $("#display").removeClass();
+        $("#display").addClass("bg-warning");
+        $("#display").html("update fail:" + JSON.stringify(error));
+       })*/
     }
   </script>
 </head>
