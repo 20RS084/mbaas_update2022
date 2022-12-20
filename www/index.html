@@ -14,6 +14,7 @@
     let UTdata = ncmb.DataStore("UpdateTest");
     let key = "score";
 
+/*ボタン毎の処理*/
     function enterData() {
       let uTdata = new UTdata();
       let value = parseInt($("#data").val());
@@ -111,6 +112,11 @@
         $("#display").html("update fail:" + JSON.stringify(error));
        })
     }
+
+    function Test(){}
+
+    function 1D4(){
+    }
   </script>
 </head>
 
@@ -131,7 +137,8 @@
     <a onclick="updateData()" class="btn btn-outline-primary" role="button">Update</a>
   </div>
   <div>
-    <a onclick=" " class="btn btn-outline-primary" role="button">Test</a>
+    <a onclick="Test()" class="btn btn-outline-primary" role="button">Test</a>
+    <a onclick="1D4()" class="btn btn-outline-primary" role="button">1D4</a>
   </div>
   <div id="display" class="text-light bg-info">
     Results
