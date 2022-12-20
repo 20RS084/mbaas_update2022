@@ -116,6 +116,20 @@
     function Test(){}
 
     function 1D4(){
+        let dicedata = new UTdata();
+        let value = (Math.floor(Math.random()*4))+1;//1~4
+        dicedata.set(key, value)
+        .save()
+        .then(function(results) {
+          $("#display").removeClass();
+          $("#display").addClass("bg-success");
+          $("#display").html("1D4:"+value);
+        })
+        .catch(function(results) {
+          $("#display").removeClass();
+          $("#display").addClass("bg-warning");
+          $("#display").html("enter fail");
+        })
     }
   </script>
 </head>
