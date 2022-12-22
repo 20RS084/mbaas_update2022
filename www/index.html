@@ -134,7 +134,32 @@
           $("#display").html("enter fail");
         })/**/
     }
-    
+
+    function allClean(){
+        UTdata.fetchAll()
+        .then(function(results) {
+            for(let i=0;i<results.length;i++){
+                return results[i].delete();
+            }}
+            )
+          .then(function(results){
+               $("#display").addClass("bg-success");
+               $("#display").html("clean success");
+            })
+          .catch(function(error){
+              $("#display").removeClass();
+              $("#display").addClass("bg-warning");
+              $("#display").html("clean fail:" + JSON.
+              stringify(error));
+            })
+        }
+        /*
+        .catch(function(error) {
+          $("#display").removeClass();
+          $("#display").addClass("bg-warning");
+          $("#display").html("delete fail:" + JSON.stringify(error));
+        })*/
+    }
   </script>
 </head>
 
@@ -161,6 +186,9 @@
     <a onclick="oneDN(6)" class="btn btn-outline-primary" role="button">1D6</a>
     <a onclick="oneDN(8)" class="btn btn-outline-primary" role="button">1D8</a>
     <a onclick="oneDN(10)" class="btn btn-outline-primary" role="button">1D10</a>
+   </div>
+   <a onclick="allClean()" class="btn btn-outline-primary" role="button">Clean</a>
+  </div>
   </div>
   <div id="display" class="text-light bg-info">
     Results
