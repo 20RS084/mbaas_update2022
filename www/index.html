@@ -18,7 +18,8 @@
     function enterData() {
       let uTdata = new UTdata();
       let value = parseInt($("#data").val());
-      uTdata.set(key, value)
+      if(value){
+          uTdata.set(key, value)
         .save()
         .then(function(results) {
           $("#display").removeClass();
@@ -30,6 +31,9 @@
           $("#display").addClass("bg-warning");
           $("#display").html("enter fail");
         })
+      }else{
+          $("#display").html("score is null");
+      }
     }
 
     function fetchAll() {
@@ -112,8 +116,6 @@
         $("#display").html("update fail:" + JSON.stringify(error));
        })
     }
-
-    function Test(){}
 
     function oneDN(num){
         let dicedata = new UTdata();
