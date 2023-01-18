@@ -136,14 +136,15 @@
     }
 
     function allClean(){
-        var number=0;
-        UTdata.fetch()
+        let number;
+        UTdata.fetchAll()
       .then(function(results){
-          number= results.count();
+          number=results.length();
         })
         .then(function(results){
+            number=results.count();
             $("#display").addClass("bg-success");
-            $("#display").html("count success: "+number);
+            $("#display").html("count success");
         })
         .catch(function(error){
             $("#display").removeClass();
