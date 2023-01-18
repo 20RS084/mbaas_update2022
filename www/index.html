@@ -136,29 +136,36 @@
     }
 
     function allClean(){
+        var number=0;
+        UTdata.fetch()
+      .then(function(results){
+          number= results.count();
+        })
+        .then(function(results){
+            $("#display").addClass("bg-success");
+            $("#display").html("count success: "+number);
+        })
+        .catch(function(error){
+            $("#display").removeClass();
+            $("#display").addClass("bg-warning");
+            $("#display").html("count fail:" + JSON.
+            stringify(error));
+        })
+        /*
         UTdata.fetchAll()
         .then(function(results) {
             for(let i=0;i<results.length;i++){
                 return results[i].delete();
-            }}
-            )
-          .then(function(results){
-               $("#display").addClass("bg-success");
-               $("#display").html("clean success");
+            }
+            $("#display").addClass("bg-success");
+            $("#display").html("clean success");
             })
-          .catch(function(error){
+            .catch(function(error){
               $("#display").removeClass();
               $("#display").addClass("bg-warning");
               $("#display").html("clean fail:" + JSON.
               stringify(error));
-            })
-        }
-        /*
-        .catch(function(error) {
-          $("#display").removeClass();
-          $("#display").addClass("bg-warning");
-          $("#display").html("delete fail:" + JSON.stringify(error));
-        })*/
+            })*/
     }
   </script>
 </head>
