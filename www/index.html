@@ -147,8 +147,11 @@
     }
 
     function allClean(){
-        var number=countData();
-            $("#display").html(number);
+        const number=countData();
+        //$("#display").html(number);//レコード数の取得
+        for(let i=0;i<number;i++){
+            deleteData();
+        }
         /*
         UTdata.fetchAll()
         .then(function(results) {
