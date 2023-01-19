@@ -152,16 +152,40 @@
         for(let i=0;i<number;i++){
             deleteData();
         }*/
+       let m1 = 7;
         
         UTdata.order(key, true).fetchAll()
       .then(function(results) {
+          /*
           for (let i = 1; i < results.length; i++) {
-            deleteData();
-          }
+            //deleteData();
+            UTdata.fetch()
+              .then(function(results){
+                  return results.delete();
+                })
+                .then(function(results){
+                $("#display").addClass("bg-success");
+                $("#display").html(i+": success");
+                })
+                .catch(function(error){
+                    $("#display").removeClass();
+                    $("#display").addClass("bg-warning");
+                    $("#display").html(i+": fail:" + JSON.
+                    stringify(error));
+                })
+          }*/
+          /*while(m1) {
+                deleteData();
+                m1 = countData();
+          }*/
           $("#display").removeClass();
           $("#display").addClass("text-light");
           $("#display").addClass("bg-primary");
-          $("#display").html("//");
+          if(results.length==m1){
+              $("#display").html(results.length+m1+1);
+          }else{
+              $("#display").html(555);
+          }
         })
         .catch(function(error) {
           $("#display").removeClass();
