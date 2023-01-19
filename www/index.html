@@ -153,39 +153,27 @@
             deleteData();
         }*/
        let m1 = 7;
+       let state = 1;
         
         UTdata.order(key, true).fetchAll()
       .then(function(results) {
-          /*
-          for (let i = 1; i < results.length; i++) {
-            //deleteData();
-            UTdata.fetch()
-              .then(function(results){
-                  return results.delete();
-                })
-                .then(function(results){
-                $("#display").addClass("bg-success");
-                $("#display").html(i+": success");
-                })
-                .catch(function(error){
-                    $("#display").removeClass();
-                    $("#display").addClass("bg-warning");
-                    $("#display").html(i+": fail:" + JSON.
-                    stringify(error));
-                })
-          }*/
-          /*while(m1) {
-                deleteData();
-                m1 = countData();
-          }*/
-          $("#display").removeClass();
-          $("#display").addClass("text-light");
-          $("#display").addClass("bg-primary");
-          if(results.length==m1){
-              $("#display").html(results.length+m1+1);
-          }else{
-              $("#display").html(555);
+          switch(state){
+              case 0:
+                $("#display").html("this is "+0);
+              break;
+              case 1:
+                $("#display").html("this is "+1);
+              break;
+              default: ;
           }
+        //   $("#display").removeClass();
+        //   $("#display").addClass("text-light");
+        //   $("#display").addClass("bg-primary");
+        //   if(results.length==m1){
+        //       $("#display").html(results.length+m1+1);
+        //   }else{
+        //       $("#display").html(555);
+        //   }
         })
         .catch(function(error) {
           $("#display").removeClass();
