@@ -147,22 +147,8 @@
     }
 
     function allClean(){
-        /*var number;
-        UTdata.count()
-      .then(function(results){
-          number=results.length();
-        })
-        .then(function(results){
-            number=results.count();
-            $("#display").addClass("bg-success");
-            $("#display").html("count success");
-        })
-        .catch(function(error){
-            $("#display").removeClass();
-            $("#display").addClass("bg-warning");
-            $("#display").html("count fail:" + JSON.
-            stringify(error));
-        })*/
+        var number=countData();
+            $("#display").html(number);
         /*
         UTdata.fetchAll()
         .then(function(results) {
