@@ -147,38 +147,25 @@
     }
 
     function allClean(){
-        /*const number=countData();
-        //$("#display").html(number);//レコード数の取得
-        for(let i=0;i<number;i++){
-            deleteData();
-        }*/
-       let m1 = 7;
-       let state = 1;
-        
+       let m1 = 1;
+       //let state = 1;
         UTdata.order(key, true).fetchAll()
       .then(function(results) {
-          switch(state){
-              case 0:
-                $("#display").html("this is "+0);
-              break;
-              case 1:
-                $("#display").html("this is "+1);
-              break;
-              default: ;
+        //deleteData();
+        
+          if(results.length==m1){
+            $("#display").removeClass();
+            $("#display").addClass("text-light");
+            $("#display").addClass("bg-primary");
+            $("#display").html("Clean success");
+          }else{
+            allClean();
           }
-        //   $("#display").removeClass();
-        //   $("#display").addClass("text-light");
-        //   $("#display").addClass("bg-primary");
-        //   if(results.length==m1){
-        //       $("#display").html(results.length+m1+1);
-        //   }else{
-        //       $("#display").html(555);
-        //   }
         })
         .catch(function(error) {
           $("#display").removeClass();
           $("#display").addClass("bg-warning");
-          $("#display").html("// fail:" + JSON.stringify(error));
+          $("#display").html("Clear fail:" + JSON.stringify(error));
         })/**/
     }
   </script>
