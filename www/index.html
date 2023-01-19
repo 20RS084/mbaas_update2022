@@ -130,7 +130,6 @@
 
     function oneDN(num){
         let dicedata = new UTdata();
-        //let value = parseInt((Math.floor(Math.random()*4)+1).val());//1~4
         let value = Math.floor(Math.random()*num)+1;//1~4
         dicedata.set(key, value)
         .save()
@@ -143,30 +142,39 @@
           $("#display").removeClass();
           $("#display").addClass("bg-warning");
           $("#display").html("enter fail");
-        })/**/
+        })
     }
 
     function allClean(){
        let m1 = 1;
-       //let state = 1;
         UTdata.order(key, true).fetchAll()
       .then(function(results) {
-        //deleteData();
-        
-          if(results.length==m1){
+        UTdata.fetch()
+      .then(function(results){
+          return results.delete();
+        })
+        .then(function(results){
+            $("#display").addClass("bg-success");
+        })
+        .catch(function(error){
+            $("#display").removeClass();
+            $("#display").addClass("bg-warning");
+        })
+
+        if(results.length==m1){
             $("#display").removeClass();
             $("#display").addClass("text-light");
-            $("#display").addClass("bg-primary");
+            $("#display").addClass("bg-success");
             $("#display").html("Clean success");
-          }else{
+        }else{
             allClean();
-          }
+        }
         })
         .catch(function(error) {
-          $("#display").removeClass();
-          $("#display").addClass("bg-warning");
-          $("#display").html("Clear fail:" + JSON.stringify(error));
-        })/**/
+            $("#display").removeClass();
+            $("#display").addClass("bg-warning");
+            $("#display").html("Clear fail:" + JSON.stringify(error));
+        })
     }
   </script>
 </head>
