@@ -136,7 +136,10 @@
         .then(function(results) {
           $("#display").removeClass();
           $("#display").addClass("bg-success");
-          $("#display").html("1D"+num+": "+value);
+          $("#display").html("1D"+num);
+          $("#subdisplay").css("font-size",120);
+          $("#subdisplay").addClass("diceResult");
+          $("#subdisplay").html(value);
         })
         .catch(function(results) {
           $("#display").removeClass();
@@ -201,13 +204,20 @@
     <a onclick="oneDN(4)" class="btn btn-outline-primary" role="button">1D4</a>
     <a onclick="oneDN(6)" class="btn btn-outline-primary" role="button">1D6</a>
     <a onclick="oneDN(8)" class="btn btn-outline-primary" role="button">1D8</a>
-    <a onclick="oneDN(10)" class="btn btn-outline-primary" role="button">1D10</a>
    </div>
-   <a onclick="allClean()" class="btn btn-outline-primary" role="button">Clean</a>
-  </div>
-  </div>
+   <div>
+    <a onclick="oneDN(10)" class="btn btn-outline-primary" role="button">1D10</a>
+    <a onclick="oneDN(12)" class="btn btn-outline-primary" role="button">1D12</a>
+    <a onclick="oneDN(20)" class="btn btn-outline-primary" role="button">1D20</a>
+    <a onclick="oneDN(100)" class="btn btn-outline-primary" role="button">1D100</a>
+   </div>
+   <div>
+    <a id="allclean" onclick="allClean()" class="btn btn-outline-primary" role="button">Clean</a>
+    </div>
   <div id="display" class="text-light bg-info">
     Results
+  </div>
+  <div id="subdisplay">
   </div>
 </body>
 

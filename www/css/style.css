@@ -1,2 +1,9 @@
 /**/
-
+.diceResult{
+    background-color: transparent;
+    text-align: center;
+    color: rgb(56, 50, 50);
+}
+:not(#display){
+    text-align: center;
+}
